@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form}}
+        <input type="submit">
+    </form>
+    <div class="col-md-12 mt-3">
+        <div class="todo-list text-center">
+            {% for i in galtxt %}
+            <div class="todo-content border border-dark p-2 mb-2 d-flex justify-content-between">
+                <div>
+                    <span class="lead">{{i.title}}</span>
+                    <img src="{{i.img.url}}">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
